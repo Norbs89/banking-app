@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header";
-import BalanceHandler from "./components/BalanceHandler";
+import BalanceManager from "./components/BalanceManager";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <BalanceHandler />
+      <BalanceManager />
     </div>
   );
 }
