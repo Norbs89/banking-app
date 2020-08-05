@@ -1,6 +1,7 @@
 import React from "react";
 import QuickAddButton from "./QuckAddButton";
 import ModifyAmountForm from "./ModifyAmountForm";
+import { GetGBP, GetUSD } from "../API";
 
 class BalanceManager extends React.Component {
   state = {
@@ -12,6 +13,42 @@ class BalanceManager extends React.Component {
     accountHistory: [],
     historyShown: false,
     buttonText: "Show Account History",
+    converterText: "GBP to USD",
+    gbp: 0,
+    usd: 0,
+  };
+
+  componentDidMount() {
+    GetUSD().then((res) => {
+      this.setState({ usd: res.data.rates.USD });
+    });
+    GetGBP().then((res) => {
+      this.setState({ gbp: res.data.rates.GBP });
+    });
+  }
+
+  convert = () => {
+    this.state.currency === "£"
+      ? this.setState((currentState) => {
+          return {
+            ...currentState,
+            currentBalance: (
+              Number(currentState.currentBalance) * currentState.usd
+            ).toFixed(2),
+            currency: "$",
+            converterText: "USD to GBP",
+          };
+        })
+      : this.setState((currentState) => {
+          return {
+            ...currentState,
+            currentBalance: (
+              Number(currentState.currentBalance) * currentState.gbp
+            ).toFixed(2),
+            currency: "£",
+            converterText: "GBP to USD",
+          };
+        });
   };
 
   addBalance = (number) => {
@@ -67,9 +104,7 @@ class BalanceManager extends React.Component {
             ...currentState,
             accountHistory: [
               ...currentState.accountHistory,
-              `You have withdrawn ${
-                this.state.currency + number
-              } from your account`,
+              `Withdraw: - ${this.state.currency + number}`,
             ],
           };
         })
@@ -78,9 +113,7 @@ class BalanceManager extends React.Component {
             ...currentState,
             accountHistory: [
               ...currentState.accountHistory,
-              `You have deposited ${
-                this.state.currency + number
-              } to your account`,
+              `Deposit: + ${this.state.currency + number}`,
             ],
           };
         });
@@ -96,12 +129,14 @@ class BalanceManager extends React.Component {
       buttonText,
       historyShown,
       accountHistory,
+      converterText,
     } = this.state;
     return (
       <div>
         <section className="balanceDisplay">
           Current Balance: {currency}
           {currentBalance}
+          <button onClick={this.convert}>{converterText}</button>
         </section>
         <section className="quickAdd">
           Choose an amount to deposit:
