@@ -172,13 +172,17 @@ class BalanceManager extends React.Component {
           </button>
           <div className="historyList">
             {historyShown &&
-              accountHistory.map((entry) => {
-                return entry.match("Deposit") ? (
-                  <p className="deposit">{entry}</p>
-                ) : (
-                  <p className="withdraw">{entry}</p>
-                );
-              })}
+              (accountHistory.length === 0 ? (
+                <p>No transactions to show!</p>
+              ) : (
+                accountHistory.map((entry) => {
+                  return entry.match("Deposit") ? (
+                    <p className="deposit">{entry}</p>
+                  ) : (
+                    <p className="withdraw">{entry}</p>
+                  );
+                })
+              ))}
           </div>
         </section>
       </div>

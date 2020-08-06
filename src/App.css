@@ -149,3 +149,17 @@ header p {
     width: 90%;
   }
 }
+
+@media (max-width: 400px) {
+  .balanceMainDiv {
+    padding: 2em 1em;
+  }
+
+  .valueButtons {
+    padding: 0 0.2em;
+  }
+
+  #addCustomValue {
+    max-width: 25%;
+  }
+}
