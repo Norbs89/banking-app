@@ -10,8 +10,8 @@ class BalanceManager extends React.Component {
     quickAddOpt: ["10", "25", "50", "100"],
     modifyValue: "",
     warning: false,
-    accountHistory: [],
     historyShown: false,
+    accountHistory: [],
     buttonText: "Show Account History",
     converterText: "GBP to USD",
     gbp: 0,
@@ -132,28 +132,32 @@ class BalanceManager extends React.Component {
       converterText,
     } = this.state;
     return (
-      <div>
+      <div className="balanceMainDiv">
         <section className="balanceDisplay">
           Current Balance: {currency}
           {currentBalance}
-          <button onClick={this.convert}>{converterText}</button>
+          <button className="button" onClick={this.convert}>
+            {converterText}
+          </button>
         </section>
-        <section className="quickAdd">
-          Choose an amount to deposit:
-          {quickAddOpt.map((number) => {
-            return (
-              <QuickAddButton
-                key={number}
-                currency={currency}
-                addBalance={this.addBalance}
-                amount={number}
-                addToHistory={this.addToHistory}
-              />
-            );
-          })}
+        <section>
+          <p>Choose an amount to deposit:</p>
+          <div className="buttonRow">
+            {quickAddOpt.map((number) => {
+              return (
+                <QuickAddButton
+                  key={number}
+                  currency={currency}
+                  addBalance={this.addBalance}
+                  amount={number}
+                  addToHistory={this.addToHistory}
+                />
+              );
+            })}
+          </div>
         </section>
         <p>OR</p>
-        <section>
+        <section className="balanceForm">
           <ModifyAmountForm
             modifyAmount={this.modifyAmount}
             handleInput={this.handleInput}
@@ -162,12 +166,20 @@ class BalanceManager extends React.Component {
           />
           {warning && <p>Please enter a valid amount!</p>}
         </section>
-        <section>
-          <button onClick={this.showHistory}>{buttonText}</button>
-          {historyShown &&
-            accountHistory.map((entry) => {
-              return <p>{entry}</p>;
-            })}
+        <section className="history">
+          <button className="button" onClick={this.showHistory}>
+            {buttonText}
+          </button>
+          <div className="historyList">
+            {historyShown &&
+              accountHistory.map((entry) => {
+                return entry.match("Deposit") ? (
+                  <p className="deposit">{entry}</p>
+                ) : (
+                  <p className="withdraw">{entry}</p>
+                );
+              })}
+          </div>
         </section>
       </div>
     );

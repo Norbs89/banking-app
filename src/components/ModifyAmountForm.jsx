@@ -7,7 +7,9 @@ const ModifyAmountForm = ({ modifyAmount, handleInput, value, currency }) => {
         e.preventDefault();
       }}
     >
-      <label htmlFor="addCustomValue">Please Enter Amount:</label>
+      <label className="addLabel" htmlFor="addCustomValue">
+        Please Enter Amount:
+      </label>
       <span> {currency}</span>
       <input
         type="text"
@@ -17,24 +19,26 @@ const ModifyAmountForm = ({ modifyAmount, handleInput, value, currency }) => {
         onChange={(e) => handleInput(e.target.value, e.target.name)}
         value={value}
       />
-      <button
-        type="submit"
-        onClick={(e) => {
-          modifyAmount("add");
-        }}
-        className="addButton"
-      >
-        Add
-      </button>
-      <button
-        type="submit"
-        onClick={(e) => {
-          modifyAmount("withdraw");
-        }}
-        className="addButton"
-      >
-        Withdraw
-      </button>
+      <span className="valueButtons">
+        <button
+          type="submit"
+          onClick={(e) => {
+            modifyAmount("add");
+          }}
+          className="button addButton"
+        >
+          Add
+        </button>
+        <button
+          type="submit"
+          onClick={(e) => {
+            modifyAmount("withdraw");
+          }}
+          className="button withdrawButton"
+        >
+          Withdraw
+        </button>
+      </span>
     </form>
   );
 };

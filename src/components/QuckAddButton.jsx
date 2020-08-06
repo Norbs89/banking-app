@@ -3,7 +3,7 @@ import React from "react";
 const QuickAddButton = ({ currency, addBalance, amount, addToHistory }) => {
   return (
     <button
-      className="addButton"
+      className="button"
       onClick={(e) => {
         addBalance(Number(amount));
         addToHistory("add", Number(amount));

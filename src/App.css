@@ -1,38 +1,151 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  padding: 2em 0;
+  font-family: "Lato", sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.mainContent {
+  width: 40%;
+  background-color: #eaeff3b6;
+  border-radius: 0.2em;
+  box-shadow: 0px 6px 8px -3px #00000031;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.header {
+  background-color: #3635358a;
+  border-top-right-radius: 0.2em;
+  border-top-left-radius: 0.2em;
+  margin-top: 0em;
+  padding: 1em 0;
+  border-bottom: 1px solid #d7ec4ffb;
+}
+
+.header h1,
+header p {
+  margin: 0 auto;
+  color: #ebeee1;
+}
+
+.header h1 {
+  font-size: 1.5em;
+  padding: 0.5em 0;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.header p {
+  font-weight: 300;
+}
+
+.balanceMainDiv {
+  padding: 2em 4em;
+}
+
+.balanceDisplay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2em;
+  font-weight: 700;
+  border-bottom: 1px solid #d7ec4ffb;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.addLabel {
+  display: block;
+  padding: 1em 0;
+}
+
+.balanceForm {
+  padding-bottom: 2em;
+  border-bottom: 1px solid #d7ec4ffb;
+}
+
+.history {
+  padding-top: 2em;
+}
+
+.historyList {
+  display: flex;
+  flex-direction: column;
+  margin: 1em auto;
+}
+
+.historyList p {
+  margin: 0;
+  padding: 0.7em;
+  border-bottom: 1px solid #36353541;
+}
+
+.deposit {
+  color: #078b07f8;
+}
+
+.withdraw {
+  color: #8f0101;
+}
+
+.button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -moz-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  -webkit-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  -ms-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  background-color: #3635358a;
+  border-radius: 0.2em;
+  border: 0;
+  box-shadow: inset 0 0 0 0.8px #2e242a32;
+  color: #ebeee1;
+  cursor: pointer;
+  padding: 0.4em 1em;
+  text-align: center;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #b2b4b686;
+  color: #363535;
+  box-shadow: inset 0 0 0 1px #3635358a;
+}
+
+.valueButtons {
+  padding: 0 1em;
+}
+
+.valueButtons .button {
+  margin: 0 0.5em;
+}
+
+.addButton {
+  background-color: #219e21c4;
+}
+
+.addButton:hover {
+  background-color: #6cbe6cc4;
+}
+
+.withdrawButton {
+  background-color: #b62929c9;
+}
+
+.withdrawButton:hover {
+  background-color: #f716168e;
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    width: 90%;
   }
 }

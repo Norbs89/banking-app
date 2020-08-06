@@ -6,8 +6,10 @@ import BalanceManager from "./components/BalanceManager";
 function App() {
   return (
     <div className="App">
-      <Header />
-      <BalanceManager />
+      <div className="mainContent">
+        <Header />
+        <BalanceManager />
+      </div>
     </div>
   );
 }
