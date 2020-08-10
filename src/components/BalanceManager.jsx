@@ -2,6 +2,7 @@ import React from "react";
 import QuickAddButton from "./QuckAddButton";
 import ModifyAmountForm from "./ModifyAmountForm";
 import { GetGBP, GetUSD } from "../API";
+import moment from "moment";
 
 class BalanceManager extends React.Component {
   state = {
@@ -104,7 +105,10 @@ class BalanceManager extends React.Component {
             ...currentState,
             accountHistory: [
               ...currentState.accountHistory,
-              `Withdraw: - ${this.state.currency + number}`,
+              {
+                msg: `Withdraw: - ${this.state.currency + number}`,
+                date: moment(new Date()).format("LLL"),
+              },
             ],
           };
         })
@@ -113,7 +117,10 @@ class BalanceManager extends React.Component {
             ...currentState,
             accountHistory: [
               ...currentState.accountHistory,
-              `Deposit: + ${this.state.currency + number}`,
+              {
+                msg: `Deposit: + ${this.state.currency + number}`,
+                date: moment(new Date()).format("LLL"),
+              },
             ],
           };
         });
@@ -176,10 +183,16 @@ class BalanceManager extends React.Component {
                 <p>No transactions to show!</p>
               ) : (
                 accountHistory.map((entry) => {
-                  return entry.match("Deposit") ? (
-                    <p className="deposit">{entry}</p>
+                  return entry.msg.match("Deposit") ? (
+                    <div className="deposit">
+                      <p>{entry.msg}</p>
+                      <p>{entry.date}</p>
+                    </div>
                   ) : (
-                    <p className="withdraw">{entry}</p>
+                    <div className="withdraw">
+                      <p>{entry.msg}</p>
+                      <p>{entry.date}</p>
+                    </div>
                   );
                 })
               ))}
