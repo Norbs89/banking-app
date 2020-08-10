@@ -1,4 +1,6 @@
 .App {
+  background: url("./assets/background.jpg") no-repeat center center fixed;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,19 +40,28 @@ header p {
 
 .header p {
   font-weight: 300;
+  padding: 0 0.3em;
 }
 
 .balanceMainDiv {
   padding: 2em 4em;
 }
 
+.exchangeDisplay {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 0.9em;
+  font-weight: 300;
+  padding: 0.5em 0;
+  border-bottom: 1px solid #d7ec4ffb;
+}
+
 .balanceDisplay {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 2em;
   font-weight: 700;
-  border-bottom: 1px solid #d7ec4ffb;
 }
 
 .buttonRow {
@@ -84,7 +95,7 @@ header p {
   justify-content: space-between;
   margin: 0;
   border-bottom: 1px solid #36353541;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 
 .deposit {
@@ -151,11 +162,18 @@ header p {
   .mainContent {
     width: 90%;
   }
+  .balanceMainDiv {
+    padding: 2em 1em;
+  }
 }
 
 @media (max-width: 400px) {
   .balanceMainDiv {
     padding: 2em 1em;
+  }
+
+  .exchangeDisplay {
+    font-size: 0.6em;
   }
 
   .valueButtons {

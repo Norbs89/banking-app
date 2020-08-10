@@ -137,6 +137,8 @@ class BalanceManager extends React.Component {
       historyShown,
       accountHistory,
       converterText,
+      usd,
+      gbp,
     } = this.state;
     return (
       <div className="balanceMainDiv">
@@ -146,6 +148,11 @@ class BalanceManager extends React.Component {
           <button className="button" onClick={this.convert}>
             {converterText}
           </button>
+        </section>
+        <section className="exchangeDisplay">
+          <p>Current Exchange Rates:</p>
+          <span>£1.00 = ${usd.toFixed(2)}</span>
+          <span>$1.00 = £{gbp.toFixed(2)}</span>
         </section>
         <section>
           <p>Choose an amount to deposit:</p>

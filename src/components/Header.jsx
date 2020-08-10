@@ -4,7 +4,9 @@ const Header = () => {
   return (
     <header className="header">
       <h1>Demo Banking App</h1>
-      <p>Purpose built tech-test</p>
+      <p>
+        Purpose built banking platform interacting with a currency converter API
+      </p>
     </header>
   );
 };
