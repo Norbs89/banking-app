@@ -3,6 +3,7 @@ import QuickAddButton from "./QuckAddButton";
 import ModifyAmountForm from "./ModifyAmountForm";
 import { GetGBP, GetUSD } from "../API";
 import moment from "moment";
+import AccountHistory from "./AccountHistory";
 
 class BalanceManager extends React.Component {
   state = {
@@ -189,19 +190,7 @@ class BalanceManager extends React.Component {
               (accountHistory.length === 0 ? (
                 <p>No transactions to show!</p>
               ) : (
-                accountHistory.map((entry) => {
-                  return entry.msg.match("Deposit") ? (
-                    <div className="deposit">
-                      <p>{entry.msg}</p>
-                      <p>{entry.date}</p>
-                    </div>
-                  ) : (
-                    <div className="withdraw">
-                      <p>{entry.msg}</p>
-                      <p>{entry.date}</p>
-                    </div>
-                  );
-                })
+                <AccountHistory accountHistory={accountHistory} />
               ))}
           </div>
         </section>

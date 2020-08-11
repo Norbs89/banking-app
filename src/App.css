@@ -7,6 +7,7 @@
   text-align: center;
   padding: 2em 0;
   font-family: "Lato", sans-serif;
+  min-height: 100vh;
 }
 
 .mainContent {
@@ -77,6 +78,16 @@ header p {
 .balanceForm {
   padding-bottom: 2em;
   border-bottom: 1px solid #d7ec4ffb;
+}
+
+#addCustomValue {
+  height: 1rem;
+  padding: 0.4em;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
 }
 
 .history {
@@ -165,15 +176,29 @@ header p {
   .balanceMainDiv {
     padding: 2em 1em;
   }
+
+  .deposit,
+  .withdraw,
+  .header p,
+  .exchangeDisplay {
+    font-size: 0.8em;
+  }
+  #addCustomValue {
+    max-width: 30%;
+  }
 }
 
 @media (max-width: 400px) {
-  .balanceMainDiv {
-    padding: 2em 1em;
+  .App {
+    padding: 0.5em 0;
   }
 
-  .exchangeDisplay {
-    font-size: 0.6em;
+  .balanceMainDiv {
+    padding: 1em;
+  }
+
+  .header p {
+    padding: 0 2em;
   }
 
   .valueButtons {
@@ -182,5 +207,12 @@ header p {
 
   #addCustomValue {
     max-width: 25%;
+  }
+
+  .deposit,
+  .withdraw,
+  .header p,
+  .exchangeDisplay {
+    font-size: 0.6em;
   }
 }

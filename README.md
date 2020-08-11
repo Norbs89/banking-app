@@ -18,5 +18,5 @@
 
 - ~~Storing Account history as an array of objects rather than as a string, so time stamp can be added to the transaction history display~~
 - ~~Displaying exchange rate used~~
-- Further mobile optimisations
+- ~~Further mobile optimisations~~
 - Warning message before entering into negative balance
